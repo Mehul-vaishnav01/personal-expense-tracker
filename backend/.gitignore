@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+
+# Environment Variables
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage/
+
+# Build files
+dist/
+build/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary files
+tmp/
+temp/
+
+# Optional npm cache
+.nPM/
+
+# Parcel cache
+.cache/
+
+# Uploads (if using Multer)
+uploads/
+
+# MongoDB dump files
+dump/
+
+# Misc
+*.swp

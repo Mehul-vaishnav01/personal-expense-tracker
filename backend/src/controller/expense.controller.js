@@ -1,0 +1,79 @@
+const expancemodel = require('../model/expense.model');
+const expensemodel=require('../model/expense.model');
+const {uploadfile}=require('../service/storage.services');
+
+async function addexpense(req,res) {
+    try{
+
+        const {title,amount,catagries}=req.body;
+        const file=req.file;
+        if(!file){
+            return res.status(400).json({
+                message:"Plese upload bill image"
+            });
+        }
+        const result=await uploadfile(file.buffer.toString('base64'));
+    
+        const addedexpanse=await expensemodel.create({
+            title,
+            catagries,
+            amount,
+            uri:result.uri,
+        })
+    
+        res.status(201).json({
+            message:"Expense added sucessfully",
+            addedexpanse,
+        })
+    }
+    catch(err){
+        res.status(500).json({
+            message:err.message
+        });
+    }
+}
+
+async function updateexpense(req,res) 
+{
+
+    try
+    {
+        const {id}=req.params;
+        const newExpense = req.body ; //new updated expense 
+
+        
+
+        if (req.file) {
+            const result = await uploadfile(req.file.buffer.toString('base64'));
+            newExpense.uri = result.uri ;
+        }
+
+
+        const updated = await expensemodel.findByIdAndUpdate( id , newExpense , {new : true}  ) ;
+        
+
+       res.status(200).json({
+        message:"Updated Successfully" ,
+        updated,
+            })
+    }
+    catch(err)
+    {
+        res.status(400).json({
+            message:"There was an error updating the Expense",err ,
+        })
+    }
+}
+    
+async function deleteExpense(req,res){
+    const {id}=req.params;
+
+    const deleted=await expancemodel.findByIdAndDelete(id);
+    res.status(200).json({message:"Expance deleted sucessfully",
+        deleted,
+
+    });
+
+}
+
+module.exports={addexpense,updateexpense,deleteExpense}

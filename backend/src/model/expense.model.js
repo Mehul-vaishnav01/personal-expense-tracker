@@ -1,22 +1,28 @@
 const mongoose = require('mongoose');
 
 const expanceschema=new mongoose.Schema({
+    
+     user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user",       
+        required: true,
+    },
     title: {
         type:String,
-        requried:true,
+        required:true,
 
     },
     amount:{
         type:Number,
-        requried:true,
+        required:true,
     },
-    catagries:{
+    category:{
         type:String,
-        requried:true,
+        required:true,
     },
     uri:{
         type:String,
-        requried:true,
+        
     },
     date:{
         type:Date,

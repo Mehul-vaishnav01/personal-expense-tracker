@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+.flow-root, .flow-root * { box-sizing: border-box; }
+.flow-root {
+  --bg: #0A0A12;
+  --surface: #14141F;
+  --surface-2: #1B1B29;
+  --surface-3: #23233590;
+  --border: #2A2A3D;
+  --text: #F3F2F8;
+  --text-dim: #9A98AC;
+  --text-faint: #6B6980;
+  --accent: #7C6AEF;
+  --accent-2: #A78BFA;
+  --income: #34D399;
+  --expense: #FB7185;
+  --grad: linear-gradient(135deg, #6D5AE6 0%, #9B7CF0 55%, #C084FC 100%);
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+.font-display { font-family: 'Sora', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+
+@keyframes fadeUp { from { opacity:0; transform: translateY(16px);} to { opacity:1; transform:translateY(0);} }
+@keyframes fadeIn { from { opacity:0;} to { opacity:1;} }
+@keyframes sheetUp { from { opacity:0; transform: translateY(40px);} to { opacity:1; transform: translateY(0);} }
+@keyframes blobFloat { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(10px,-16px) scale(1.05);} }
+@keyframes sheen { 0% { transform: translateX(-120%) rotate(8deg);} 100% { transform: translateX(220%) rotate(8deg);} }
+@keyframes spinSlow { to { transform: rotate(360deg);} }
+@keyframes shake { 10%,90%{transform:translateX(-1px);} 20%,80%{transform:translateX(2px);} 30%,50%,70%{transform:translateX(-4px);} 40%,60%{transform:translateX(4px);} }
+@keyframes pulseGlow { 0%,100%{ box-shadow: 0 0 0 0 rgba(124,106,239,0.5);} 50%{ box-shadow: 0 0 0 8px rgba(124,106,239,0);} }
+@keyframes tabIn { from { opacity:0; transform: translateY(10px);} to { opacity:1; transform:translateY(0);} }
+
+.anim-fadeUp { animation: fadeUp .5s cubic-bezier(.2,.7,.3,1) both; }
+.anim-fadeIn { animation: fadeIn .25s ease both; }
+.anim-sheet { animation: sheetUp .4s cubic-bezier(.2,.8,.2,1) both; }
+.anim-shake { animation: shake .45s; }
+.anim-tab { animation: tabIn .38s cubic-bezier(.2,.7,.3,1) both; }
+.spin-slow { animation: spinSlow 1s linear infinite; }
+
+.glass-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+.press:active { transform: scale(0.96); }
+.press { transition: transform .15s ease; }
+
+.balance-card {
+  position: relative; overflow: hidden; border-radius: 24px;
+  background: var(--grad);
+  padding: 26px 24px;
+  box-shadow: 0 20px 50px -18px rgba(124,106,239,0.55);
+}
+.balance-card::before {
+  content: ''; position: absolute; width: 60%; height: 220%; top: -60%; left: -30%;
+  background: linear-gradient(100deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.18) 50%, rgba(255,255,255,0) 60%);
+  animation: sheen 4.5s ease-in-out infinite;
+}
+.blob { position: fixed; border-radius: 50%; filter: blur(70px); opacity: 0.35; pointer-events: none; z-index: 0; animation: blobFloat 9s ease-in-out infinite; }
+
+.input-dark {
+  background: var(--surface-2); border: 1.5px solid var(--border); color: var(--text);
+  border-radius: 12px; padding: 12px 14px; width: 100%; outline: none; font-family: 'Inter', sans-serif;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.input-dark::placeholder { color: var(--text-faint); }
+.input-dark:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(124,106,239,0.22); }
+
+.btn-grad {
+  background: var(--grad); color: #fff; border: none; border-radius: 12px; padding: 13px 20px;
+  font-weight: 600; cursor: pointer; transition: transform .15s ease, filter .2s ease;
+}
+.btn-grad:hover { filter: brightness(1.08); }
+.btn-grad:active { transform: scale(0.97); }
+.btn-outline {
+  background: transparent; border: 1.5px solid var(--border); color: var(--text);
+  border-radius: 12px; padding: 12px 18px; font-weight: 600; cursor: pointer; transition: all .18s ease;
+}
+.btn-outline:hover { border-color: var(--accent); background: rgba(124,106,239,0.08); }
+
+.chip-dark {
+  border: 1.5px solid var(--border); border-radius: 999px; padding: 7px 14px; font-size: 13px;
+  font-weight: 500; cursor: pointer; background: var(--surface-2); color: var(--text-dim);
+  transition: all .18s ease; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px;
+}
+.chip-dark[data-active="true"] { color: #fff; border-color: transparent; }
+
+.icon-badge { width: 42px; height: 42px; border-radius: 13px; display:flex; align-items:center; justify-content:center; flex-shrink: 0; }
+
+.row-btn { display:flex; align-items:center; gap:12px; padding: 13px 6px; border-radius: 12px; cursor:pointer; transition: background .18s ease; }
+.row-btn:hover { background: var(--surface-2); }
+
+/* nav */
+.sidebar-nav { display:none; }
+.bottom-nav {
+  position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
+  background: rgba(20,20,31,0.85); backdrop-filter: blur(16px);
+  border: 1px solid var(--border); border-radius: 22px;
+  display: flex; align-items: center; justify-content: space-around; padding: 8px 6px;
+  box-shadow: 0 12px 34px -14px rgba(0,0,0,0.6);
+}
+.nav-item { display:flex; flex-direction:column; align-items:center; gap:3px; background:none; border:none; cursor:pointer; color: var(--text-faint); padding: 6px 10px; border-radius: 12px; transition: color .2s ease; }
+.nav-item[data-active="true"] { color: var(--accent-2); }
+.nav-item span { font-size: 10.5px; font-weight: 600; }
+.fab {
+  width: 54px; height: 54px; border-radius: 50%; background: var(--grad); border: none; color: #fff;
+  display:flex; align-items:center; justify-content:center; cursor:pointer; margin-top: -30px;
+  box-shadow: 0 10px 26px -6px rgba(124,106,239,0.7); animation: pulseGlow 2.6s ease-in-out infinite;
+  transition: transform .15s ease;
+}
+.fab:active { transform: scale(0.92); }
+
+.main-content { padding: 20px 18px 110px; max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; }
+
+/* Narrower reading column for single-card pages (Profile, Budget) so they don't
+   stretch into awkward, sparse layouts on wide desktop screens. */
+.page-narrow { max-width: 760px; margin: 0 auto; width: 100%; }
+
+/* Dashboard: stacked on mobile/tablet, splits into a fixed-width summary column
+   plus a flexible activity column once there's enough room to do so nicely. */
+.dashboard-grid { display: flex; flex-direction: column; gap: 20px; }
+.dashboard-side { display: flex; flex-direction: column; gap: 20px; }
+
+/* Expenses toolbar: search stacks above filter chips on mobile, sits beside them
+   on wider viewports instead of stretching full-width. */
+.expenses-toolbar { display: flex; flex-direction: column; gap: 12px; }
+.expenses-toolbar .search-wrap { position: relative; width: 100%; }
+.expenses-toolbar .chip-row { display: flex; gap: 8px; overflow-x: auto; min-width: 0; }
+
+@media (min-width: 880px) {
+  .sidebar-nav {
+    display:flex; flex-direction:column; position:fixed; top:0; left:0; bottom:0; width:232px;
+    padding: 26px 18px; border-right: 1px solid var(--border); background: var(--surface); z-index: 50; gap: 6px;
+  }
+  .bottom-nav { display:none; }
+  .main-content { margin-left: 232px; padding: 30px 34px 40px; max-width: 1100px; }
+  .header-bar { margin-left: 232px; }
+
+  .expenses-toolbar { flex-direction: row; align-items: center; }
+  .expenses-toolbar .search-wrap { flex: 0 1 300px; }
+  .expenses-toolbar .chip-row { flex: 1; }
+}
+
+/* Once the sidebar plus content have real room to breathe, let the dashboard
+   use a proper two-column layout instead of one long stacked column. */
+@media (min-width: 1180px) {
+  .main-content { max-width: 1320px; padding: 34px 46px 46px; }
+  .header-bar { padding: 26px 46px 6px; }
+  .dashboard-grid { display: grid; grid-template-columns: 380px 1fr; gap: 26px; align-items: start; }
+  .dashboard-side { position: sticky; top: 26px; }
+}
+
+.scrollbar-thin::-webkit-scrollbar { height:6px; width:6px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { background: var(--border); border-radius:3px; }
+
+.sheet-overlay { position: fixed; inset:0; background: rgba(5,5,10,0.72); backdrop-filter: blur(3px); z-index: 100; display:flex; align-items:flex-end; justify-content:center; }
+.sheet-modal { background: var(--surface); width:100%; max-width: 480px; border-radius: 22px 22px 0 0; padding: 20px 20px 26px; max-height: 90vh; overflow-y:auto; border: 1px solid var(--border); border-bottom:none; }
+@media (min-width: 640px) {
+  .sheet-overlay { align-items:center; }
+  .sheet-modal { border-radius: 22px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fadeUp,.anim-fadeIn,.anim-sheet,.anim-shake,.anim-tab,.spin-slow,.balance-card::before,.blob,.fab { animation:none !important; transition:none !important; }
+}

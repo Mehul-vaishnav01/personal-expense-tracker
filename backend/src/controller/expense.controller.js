@@ -1,24 +1,20 @@
-const expancemodel = require('../model/expense.model');
 const expensemodel=require('../model/expense.model');
 const {uploadfile}=require('../service/storage.services');
 
 async function addexpense(req,res) {
     try{
 
-        const {title,amount,catagries}=req.body;
+        const {title,amount,category}=req.body;
         const file=req.file;
-        if(!file){
-            return res.status(400).json({
-                message:"Plese upload bill image"
-            });
-        }
+    
         const result=await uploadfile(file.buffer.toString('base64'));
     
         const addedexpanse=await expensemodel.create({
             title,
-            catagries,
+            category,
             amount,
-            uri:result.uri,
+            uri:result.url,
+            user: req.user.id
         })
     
         res.status(201).json({
@@ -68,7 +64,7 @@ async function updateexpense(req,res)
 async function deleteExpense(req,res){
     const {id}=req.params;
 
-    const deleted=await expancemodel.findByIdAndDelete(id);
+    const deleted=await expensemodel.findByIdAndDelete(id);
     res.status(200).json({message:"Expance deleted sucessfully",
         deleted,
 
@@ -76,4 +72,51 @@ async function deleteExpense(req,res){
 
 }
 
-module.exports={addexpense,updateexpense,deleteExpense}
+async function getexpenses(req,res) {
+    try{
+        const expenses=await expensemodel.find({
+            user:req.user.id
+        }).sort({date:-1});
+
+        res.status(200).json({
+            expenses
+        })
+    }catch(err){
+        res.status(500).json({
+            message:err.message
+        });
+    }
+}
+async function getexpense(req, res) {
+
+    try {
+
+        const { id } = req.params;
+
+        const expense = await expensemodel.findOne({
+            _id: id,
+            user: req.user.id
+        });
+
+        if (!expense) {
+            return res.status(404).json({
+                message: "Expense not found"
+            });
+        }
+
+        res.status(200).json({
+            message: "Expense fetched successfully",
+            expense
+        });
+
+    } catch (err) {
+
+        res.status(500).json({
+            message: err.message
+        });
+
+    }
+}
+
+
+module.exports={addexpense,updateexpense,deleteExpense,getexpenses,getexpense}

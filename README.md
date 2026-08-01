@@ -58,19 +58,19 @@ If the API is unreachable, the frontend automatically falls back to a **live dem
 
 ### Dashboard / Home
 
-<img src="./screenshots/dashboard_Home.png" alt="Dashboard home" width="800"/>
+<img src="./screenshots/dashboard_Home.png" alt="Dashboard home" width="400"/>
 
 ### Expenses List
 
-<img src="./screenshots/dashoboard_Expense.png" alt="Expenses list" width="800"/>
+<img src="./screenshots/dashoboard_Expense.png" alt="Expenses list" width="400"/>
 
 ### Budget Breakdown
 
-<img src="./screenshots/dashboard_budget.png" alt="Budget breakdown" width="800"/>
+<img src="./screenshots/dashboard_budget.png" alt="Budget breakdown" width="400"/>
 
 ### Profile
 
-<img src="./screenshots/dashboard_Profile.png" alt="Profile page" width="800"/>
+<img src="./screenshots/dashboard_Profile.png" alt="Profile page" width="400"/>
 
 <br/>
 

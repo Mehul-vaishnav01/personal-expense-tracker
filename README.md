@@ -9,8 +9,7 @@ A full-stack MERN expense tracker with receipt uploads, category breakdowns, and
 [![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Node.js](https://img.shields.io/badge/Node.js-Express%205-339933?logo=nodedotjs&logoColor=white)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](#license)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/
 
 </div>
 
@@ -76,17 +75,17 @@ If the API is unreachable, the frontend automatically falls back to a **live dem
 
 | Add Expense | Edit Expense |
 |:---:|:---:|
-| <img src="./screenshots/dashboard_addExpense.png" alt="Add expense" width="400"/> | <img src="./screenshots/dashboard_EditExpense.png" alt="Edit expense" width="400"/> |
+| <img src="./screenshots/dashboard_addExpense.png" alt="Add expense" width="400"/> | <img src="./screenshots/dashboard_EditExpense.png" alt="Edit expense" width="200"/> |
 
 | Delete Expense | Success Toast |
 |:---:|:---:|
-| <img src="./screenshots/dashboard_deleteExpense.png" alt="Delete expense confirmation" width="400"/> | <img src="./screenshots/dashboard_deleteMessage.png" alt="Delete success message" width="400"/> |
+| <img src="./screenshots/dashboard_deleteExpense.png" alt="Delete expense confirmation" width="400"/> | <img src="./screenshots/dashboard_deleteMessage.png" alt="Delete success message" width="200"/> |
 
-<img src="./screenshots/dashboard_EdiMessage.png" alt="Edit success message" width="400"/>
+<img src="./screenshots/dashboard_EdiMessage.png" alt="Edit success message" width="200"/>
 
 </div>
 
-> Screenshots live in [`/screenshots`](./screenshots) at the repo root — replace them any time by dropping in new PNGs with the same filenames.
+
 
 ## 📁 Project Structure
 
@@ -201,9 +200,6 @@ Contributions, issues, and feature requests are welcome.
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ---
 

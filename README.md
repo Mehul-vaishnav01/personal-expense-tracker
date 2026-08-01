@@ -210,8 +210,7 @@ Contributions, issues, and feature requests are welcome.
 ### Mehul Vaishnav
 
 [![GitHub](https://img.shields.io/badge/GitHub-Mehul--vaishnav01-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Mehul-vaishnav01)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](www.linkedin.com/in/mehul-vaishnav-4a255a308)
-
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mehul-vaishnav-4a255a308)
 *If you found this project useful, consider giving it a ⭐ on GitHub!*
 
 </div>
